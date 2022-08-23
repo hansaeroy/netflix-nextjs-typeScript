@@ -1,8 +1,13 @@
 // import type { NextPage } from 'next';
 import Head from 'next/head';
+import { useState } from 'react';
+import { useRecoilValue } from 'recoil';
+import { modalState } from '../atoms/modalAtom.';
 import Banner from '../components/Banner';
 import Header from '../components/Header';
+import Modal from '../components/Modal';
 import Row from '../components/Row';
+import useAuth from '../hooks/useAuth';
 import { Movie } from '../typings';
 import requests from '../utils/request';
 
@@ -31,6 +36,14 @@ const Home = ({
 }: Props) => {
   console.log(netflixOriginals);
 
+  const { loading } = useAuth();
+  const showModal = useRecoilValue(modalState);
+  //const [showModal, setShowModal] = useState(false)와 같은 내용이다.
+
+  if (loading) return null;
+  // useContext에서 loding 기본값이 false다
+  // 여기서는 loading이 참이라면 login을 안한 상태라 아래 내용은 보여주지 않는다는 것이다.(굳이 보여줄 필요가 없으니깐 데이터 로딩에도 도움되고 좋다.)
+
   return (
     <div className='relative h-screen bg-gradient-to-b lg:h-[140vh]'>
       <Head>
@@ -51,6 +64,8 @@ const Home = ({
           <Row title='Documentaries' movies={documentaries} />
         </section>
       </main>
+      {/* modal */}
+      {showModal && <Modal />}
     </div>
   );
 };
