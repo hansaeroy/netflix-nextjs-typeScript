@@ -45,7 +45,11 @@ const Home = ({
   // 여기서는 loading이 참이라면 login을 안한 상태라 아래 내용은 보여주지 않는다는 것이다.(굳이 보여줄 필요가 없으니깐 데이터 로딩에도 도움되고 좋다.)
 
   return (
-    <div className='relative h-screen bg-gradient-to-b lg:h-[140vh]'>
+    <div
+      className={`relative h-screen bg-gradient-to-b lg:h-[140vh] ${
+        showModal && `!h-screen overflow-hidden`
+      }`}
+    >
       <Head>
         {/* <title>{movie?.title || movie.original_name || Home}- Neflix</title> */}
         <title> Neflix</title>
