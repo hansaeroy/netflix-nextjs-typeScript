@@ -5,7 +5,7 @@ import {
   VolumeUpIcon,
   XIcon,
 } from '@heroicons/react/outline';
-import MuiModal from '@mui/material/modal';
+import MuiModal from '@mui/material/Modal';
 import { useEffect, useState } from 'react';
 import { FaPlay } from 'react-icons/fa';
 import ReactPlayer from 'react-player/lazy';
