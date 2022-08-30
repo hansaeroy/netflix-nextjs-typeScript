@@ -1,7 +1,7 @@
 import { BellIcon, SearchIcon } from '@heroicons/react/solid';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import Basicmenu from './Basicmenu';
+import BasicMenu from './BasicMenu';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -31,7 +31,7 @@ const Header = () => {
           height={100}
           className='object-contain cursor-pointer'
         />
-        <Basicmenu />
+        <BasicMenu />
         <ul className='hidden space-x-4 md:flex'>
           <li className='font-semibold text-white cursor-default headerLink hover:text-white'>
             Home
